@@ -1,0 +1,27 @@
+{
+  "name": "root-hints",
+  "version": "0.1.0",
+  "description": "Provides IP addresses of the DNS root server, aka root hints",
+  "author": "silverwind <silv3rwind@gmail.com> (https://github.com/silverwind)",
+  "license": "BSD-2-Clause",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/silverwind/root-hints.git"
+  },
+  "engines": {
+    "node": "~0.10.0"
+  },
+  "keywords": [
+    "dns",
+    "root",
+    "hints",
+    "internic",
+    "zone",
+    "authorative",
+    "ip",
+    "ipv4",
+    "ipv6",
+    "root-servers"
+  ]
+}
