@@ -1,7 +1,10 @@
 "use strict";
 
+// Source: http://www.internic.net/domain/named.root
+
 module.exports = function rootHints(recordType) {
     var hints;
+
     if (typeof recordType === "undefined")
         recordType = "A";
 
