@@ -8,8 +8,10 @@ npm install --save root-hints
 ##Usage
 ```js
 var rootHints = require("root-hints");
+
 console.log(rootHints("A"));
 // -> ["198.41.0.4", "192.228.79.201", ...]
+
 console.log(rootHints("AAAA"));
 // -> ["2001:503:BA3E::2:30", "2001:500:84::B", ...]
 ```

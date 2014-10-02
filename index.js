@@ -3,13 +3,12 @@
 // Source: http://www.internic.net/domain/named.root
 
 module.exports = function rootHints(recordType) {
-    var hints;
 
     if (typeof recordType === "undefined")
         recordType = "A";
 
     if (recordType === "A") {
-        hints = [
+        return [
             "198.41.0.4",           // A.ROOT-SERVERS.NET
             "192.228.79.201",       // B.ROOT-SERVERS.NET
             "192.33.4.12",          // C.ROOT-SERVERS.NET
@@ -25,7 +24,7 @@ module.exports = function rootHints(recordType) {
             "202.12.27.33"          // M.ROOT-SERVERS.NET
         ];
     } else if (recordType === "AAAA") {
-        hints = [
+        return [
             "2001:503:BA3E::2:30",  // A.ROOT-SERVERS.NET
             "2001:500:84::B",       // B.ROOT-SERVERS.NET
             "2001:500:2::C",        // C.ROOT-SERVERS.NET
@@ -43,5 +42,4 @@ module.exports = function rootHints(recordType) {
     } else {
         throw new Error("Unknown record type: " + recordType);
     }
-    return hints;
 };
