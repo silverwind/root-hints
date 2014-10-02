@@ -1,6 +1,6 @@
 {
   "name": "root-hints",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Provides IP addresses of the DNS root server, aka root hints",
   "author": "silverwind <silv3rwind@gmail.com> (https://github.com/silverwind)",
   "license": "BSD-2-Clause",
