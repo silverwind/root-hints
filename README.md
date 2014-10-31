@@ -1,4 +1,4 @@
-#root-hints [![NPM version](https://img.shields.io/npm/v/root-hints.svg)](https://www.npmjs.org/package/root-hints)
+#root-hints [![NPM version](https://img.shields.io/npm/v/root-hints.svg?style=flat)](https://www.npmjs.org/package/root-hints)
 > Provides IP addresses of the DNS root server, aka root hints
 
 ##Installation
