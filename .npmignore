@@ -1,0 +1,7 @@
+.editorconfig
+.npmignore
+.gitignore
+.gitattributes
+.jshintrc
+Gruntfile.js
+named.root
