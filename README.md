@@ -1,11 +1,11 @@
-#root-hints [![NPM version](https://img.shields.io/npm/v/root-hints.svg)](https://www.npmjs.org/package/root-hints)
+# root-hints [![NPM version](https://img.shields.io/npm/v/root-hints.svg)](https://www.npmjs.org/package/root-hints)
 > Provides IP addresses of the DNS root server, aka root hints
 
-##Installation
+## Installation
 ```bash
 npm install --save root-hints
 ```
-##Usage
+## Usage
 ```js
 var rootHints = require("root-hints");
 console.log(rootHints("A"));
@@ -14,4 +14,4 @@ console.log(rootHints("AAAA"));
 // -> ["2001:503:BA3E::2:30", "2001:500:84::B", ...]
 ```
 
-:copyright: 2014 [silverwind](https://github.com/silverwind), distributed under BSD licence
+:copyright: 2014-2015 [silverwind](https://github.com/silverwind), distributed under BSD licence
