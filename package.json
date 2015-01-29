@@ -23,5 +23,10 @@
     "ipv4",
     "ipv6",
     "root-servers"
-  ]
+  ],
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-bump": "^0.0.16",
+    "grunt-shell": "^1.1.1"
+  }
 }
