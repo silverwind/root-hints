@@ -2,7 +2,7 @@
   "name": "root-hints",
   "version": "0.2.1",
   "description": "Provides IP addresses of the DNS root server, aka root hints",
-  "author": "silverwind <silv3rwind@gmail.com> (https://github.com/silverwind)",
+  "author": "silverwind <me@silverwind.io> (https://github.com/silverwind)",
   "license": "BSD-2-Clause",
   "main": "index.js",
   "repository": {
@@ -10,7 +10,10 @@
     "url": "https://github.com/silverwind/root-hints.git"
   },
   "engines": {
-    "node": "~0.10.0"
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha"
   },
   "keywords": [
     "dns",
@@ -30,6 +33,6 @@
     "grunt-shell": "~1.1.1"
   },
   "dependencies": {
-    "got": "^2.3.2"
+    "mocha": "*"
   }
 }
