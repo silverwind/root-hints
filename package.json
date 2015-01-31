@@ -28,5 +28,8 @@
     "grunt": "~0.4.5",
     "grunt-bump": "~0.0.16",
     "grunt-shell": "~1.1.1"
+  },
+  "dependencies": {
+    "got": "^2.3.2"
   }
 }
