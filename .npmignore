@@ -4,4 +4,6 @@
 .gitattributes
 .jshintrc
 Gruntfile.js
+test.js
+update.js
 named.root
