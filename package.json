@@ -31,6 +31,7 @@
     "got": "^2.3.2",
     "grunt": "~0.4.5",
     "grunt-bump": "~0.0.17",
+    "grunt-contrib-jshint": "^0.11.0",
     "grunt-shell": "~1.1.1"
   }
 }
