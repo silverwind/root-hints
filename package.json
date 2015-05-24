@@ -26,10 +26,9 @@
   ],
   "devDependencies": {
     "got": "^3.2.0",
-    "grunt": "~0.4.5",
-    "grunt-bump": "~0.3.1",
-    "grunt-contrib-jshint": "^0.11.2",
-    "grunt-shell": "~1.1.2",
+    "grunt": "^0.4.5",
+    "grunt-bump": "^0.3.1",
+    "grunt-shell": "1.1.2",
     "ip-regex": "^1.0.3"
   }
 }
