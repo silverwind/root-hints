@@ -1,35 +1,42 @@
 #!/usr/bin/env node
 "use strict";
 
-var fs  = require("fs"),
-    got = require("got");
+var fs           = require("fs");
+var path         = require("path");
+var got          = require("got");
+var ipRegex      = require("ip-regex");
 
 got("http://www.internic.net/domain/named.root", function (err, data) {
-    if (err) return console.err(err);
-    var lines = String(data).split("\n");
+    var hints = [];
 
-    // Exclude comments, "." lines and empty lines
-    lines = lines.filter(function (line) {
-        return !/^[\.|\;]$/.test(line[0]) && line.trim().length;
+    data.split("\n").filter(function (line) {
+       return !/^$/.test(line) && !/^;/.test(line) && !/\bNS\b/.test(line);
+    }).forEach(function (line) {
+        var name = /^(\S+)\.\s/.exec(line)[1].toLowerCase();
+
+        var i;
+        hints.some(function (el, index) {
+            if (el.name === name) {
+                i = index;
+                return true;
+            }
+        });
+
+        var entry = hints[i] || {};
+        entry.name = name;
+
+        if (/\bAAAA\b/.test(line)) {
+            entry.AAAA = ipRegex.v6().exec(line)[0];
+        } else {
+            entry.A = ipRegex.v4().exec(line)[0];
+        }
+
+        if (typeof i === "number") {
+            hints[i] = entry;
+        } else {
+            hints.push(entry);
+        }
     });
 
-    // Create a hash table of servers
-    var servers = {};
-    lines.forEach(function(line) {
-        var parts = line.split(/\s+/), name = /(.+)\.$/.exec(parts[0])[1].toLowerCase();
-        if (!servers[name]) servers[name] = {};
-        servers[name][parts[2]] = parts[3];
-    });
-
-    // Put the server names into the result array
-    var result = [];
-    Object.keys(servers).forEach(function(server) {
-        servers[server].name = server;
-        result.push(servers[server]);
-    });
-
-    fs.writeFile("hints.json", JSON.stringify(result, null, 2), function (err) {
-        if (err) return console.err(err);
-        console.log("hints.json updated successfully!");
-    });
+    fs.writeFileSync(path.join(__dirname, "hints.json"), JSON.stringify(hints, null, 2) + "\n");
 });
