@@ -6,17 +6,17 @@ var path    = require("path");
 var got     = require("got");
 var ipRegex = require("ip-regex");
 
-got("http://www.internic.net/domain/named.root", function (err, data) {
+got("http://www.internic.net/domain/named.root", function(err, data) {
   if (err) return console.error(err);
   var hints = [];
 
-  data.split("\n").filter(function (line) {
+  data.split("\n").filter(function(line) {
     return !/^$/.test(line) && !/^;/.test(line) && !/\bNS\b/.test(line);
-  }).forEach(function (line) {
+  }).forEach(function(line) {
     var name = /^(\S+)\.\s/.exec(line)[1].toLowerCase();
 
     var i;
-    hints.some(function (el, index) {
+    hints.some(function(el, index) {
       if (el.name === name) {
         i = index;
         return true;
