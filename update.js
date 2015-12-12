@@ -5,14 +5,15 @@ var fs      = require("fs");
 var path    = require("path");
 var got     = require("got");
 var ipRegex = require("ip-regex");
+var source  = "http://www.internic.net/domain/named.root";
 
-got("http://www.internic.net/domain/named.root", function(err, data) {
-  if (err) return console.error(err);
+got(source).catch(console.error).then(function(res) {
   var hints = [];
 
-  data.split("\n").filter(function(line) {
+  res.body.split("\n").filter(function(line) {
     return !/^$/.test(line) && !/^;/.test(line) && !/\bNS\b/.test(line);
   }).forEach(function(line) {
+    line = line.trim();
     var name = /^(\S+)\.\s/.exec(line)[1].toLowerCase();
 
     var i;
