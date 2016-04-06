@@ -55,7 +55,7 @@
   {
     "name": "l.root-servers.net",
     "A": "199.7.83.42",
-    "AAAA": "2001:500:3::42"
+    "AAAA": "2001:500:9f::42"
   },
   {
     "name": "m.root-servers.net",
