@@ -1,10 +1,10 @@
-# root-hints [![NPM version](https://img.shields.io/npm/v/root-hints.svg?style=flat)](https://www.npmjs.org/package/root-hints)
-Provides IP addresses of the DNS root servers, also known as 'root hints'.
+# root-hints [![](https://img.shields.io/npm/v/root-hints.svg)](https://www.npmjs.org/package/root-hints) [![](https://img.shields.io/david/silverwind/root-hints.svg)](https://david-dm.org/silverwind/root-hints)
+Provides IP addresses of the DNS root servers, also known as root hints.
 
 ## Installation
 
-```bash
-npm install --save root-hints
+```sh
+$ npm install --save root-hints
 ```
 
 ## Usage
