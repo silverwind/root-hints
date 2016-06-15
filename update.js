@@ -5,7 +5,7 @@ var fs      = require("fs");
 var path    = require("path");
 var got     = require("got");
 var ipRegex = require("ip-regex");
-var source  = "http://www.internic.net/domain/named.root";
+var source  = "https://www.internic.net/domain/named.root";
 
 got(source).catch(console.error).then(function(res) {
   var hints = [];
