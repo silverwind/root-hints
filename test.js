@@ -1,7 +1,7 @@
 "use strict";
 
 var assert = require("assert");
-var net = require("net");
+var net    = require("net");
 var hints  = require("./");
 
 it("should return an array", function() {

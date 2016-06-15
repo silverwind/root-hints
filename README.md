@@ -22,4 +22,4 @@ console.log(hints());
 //=> [{ A: '198.41.0.4', AAAA: '2001:503:ba3e::2:30', name: 'a.root-servers.net' }, ...]
 ```
 
-© 2014-2015 [silverwind](https://github.com/silverwind), distributed under BSD licence
+© [silverwind](https://github.com/silverwind), distributed under BSD licence
