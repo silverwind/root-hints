@@ -31,7 +31,8 @@
   },
   {
     "name": "g.root-servers.net",
-    "A": "192.112.36.4"
+    "A": "192.112.36.4",
+    "AAAA": "2001:500:12::d0d"
   },
   {
     "name": "h.root-servers.net",
