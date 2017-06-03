@@ -7,7 +7,7 @@
   {
     "name": "b.root-servers.net",
     "A": "192.228.79.201",
-    "AAAA": "2001:500:84::b"
+    "AAAA": "2001:500:200::b"
   },
   {
     "name": "c.root-servers.net",
