@@ -1,8 +1,8 @@
 "use strict";
 
-var assert = require("assert");
-var net    = require("net");
-var hints  = require(".");
+const assert = require("assert");
+const net    = require("net");
+const hints  = require(".");
 
 assert(Array.isArray(hints("A")));
 assert(Array.isArray(hints("AAAA")));

@@ -1,22 +1,22 @@
 #!/usr/bin/env node
 "use strict";
 
-var fs      = require("fs");
-var path    = require("path");
-var got     = require("got");
-var ipRegex = require("ip-regex");
-var source  = "https://www.internic.net/domain/named.root";
+const fs      = require("fs");
+const path    = require("path");
+const got     = require("got");
+const ipRegex = require("ip-regex");
+const source  = "https://www.internic.net/domain/named.root";
 
 got(source).catch(console.error).then(function(res) {
-  var hints = [];
+  const hints = [];
 
   res.body.split("\n").filter(function(line) {
     return !/^$/.test(line) && !/^;/.test(line) && !/\bNS\b/.test(line);
   }).forEach(function(line) {
     line = line.trim();
-    var name = /^(\S+)\.\s/.exec(line)[1].toLowerCase();
+    const name = /^(\S+)\.\s/.exec(line)[1].toLowerCase();
 
-    var i;
+    let i;
     hints.some(function(el, index) {
       if (el.name === name) {
         i = index;
@@ -24,7 +24,7 @@ got(source).catch(console.error).then(function(res) {
       }
     });
 
-    var entry = hints[i] || {};
+    const entry = hints[i] || {};
     entry.name = name;
 
     if (/\bAAAA\b/.test(line)) {

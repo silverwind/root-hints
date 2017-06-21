@@ -8,6 +8,9 @@
   "scripts": {
     "test": "node --trace-deprecation --throw-deprecation test.js"
   },
+  "engines": {
+    "node": ">=4"
+  },
   "keywords": [
     "dns",
     "root",

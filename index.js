@@ -1,10 +1,10 @@
 "use strict";
 
-var hints = require("./hints.json");
+const hints = require("./hints.json");
 
 module.exports = function rootHints(type) {
   if (type === "A" || type === "AAAA") {
-    var records = [];
+    const records = [];
     hints.forEach(function(hint) {
       if (hint[type]) {
         records.push(hint[type]);
