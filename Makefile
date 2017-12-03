@@ -1,15 +1,16 @@
 lint:
-	eslint *.js
+	node_modules/.bin/eslint *.js
 
 test:
-	npm test
+	$(MAKE) lint
+	node --trace-deprecation --throw-deprecation test.js
 
 publish:
 	git push -u --tags origin master
 	npm publish
 
 update:
-	ncu --packageFile package.json -ua
+	node_modules/.bin/updates -u
 	rm -rf node_modules
 	yarn
 
