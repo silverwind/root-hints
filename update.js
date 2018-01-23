@@ -1,16 +1,16 @@
 #!/usr/bin/env node
 "use strict";
 
-const fs      = require("fs");
-const path    = require("path");
-const got     = require("got");
+const fs = require("fs");
+const path = require("path");
 const ipRegex = require("ip-regex");
-const source  = "https://www.internic.net/domain/named.root";
+const request = require("request-promise-native");
+const source = "https://www.internic.net/domain/named.root";
 
-got(source).catch(console.error).then(function(res) {
+request(source).catch(console.error).then(function(body) {
   const hints = [];
 
-  res.body.split("\n").filter(function(line) {
+  body.split("\n").filter(function(line) {
     return !/^$/.test(line) && !/^;/.test(line) && !/\bNS\b/.test(line);
   }).forEach(function(line) {
     line = line.trim();
