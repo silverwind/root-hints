@@ -7,17 +7,17 @@ const ipRegex = require("ip-regex");
 const request = require("request-promise-native");
 const source = "https://www.internic.net/domain/named.root";
 
-request(source).catch(console.error).then(function(body) {
+request(source).catch(console.error).then(body => {
   const hints = [];
 
-  body.split("\n").filter(function(line) {
+  body.split("\n").filter(line => {
     return !/^$/.test(line) && !/^;/.test(line) && !/\bNS\b/.test(line);
-  }).forEach(function(line) {
+  }).forEach(line => {
     line = line.trim();
     const name = /^(\S+)\.\s/.exec(line)[1].toLowerCase();
 
     let i;
-    hints.some(function(el, index) {
+    hints.some((el, index) => {
       if (el.name === name) {
         i = index;
         return true;

@@ -1,25 +1,17 @@
 "use strict";
 
+const rootHints = require(".");
 const assert = require("assert");
-const net    = require("net");
-const hints  = require(".");
+const net = require("net");
 
-assert(Array.isArray(hints("A")));
-assert(Array.isArray(hints("AAAA")));
-assert(Array.isArray(hints()));
+assert(Array.isArray(rootHints("A")));
+assert(Array.isArray(rootHints("AAAA")));
+assert(Array.isArray(rootHints()));
 
-assert(hints("A").length >= 13);
-assert(hints("AAAA").length >= 13);
-assert(hints().length >= 13);
+assert(rootHints("A").length >= 13);
+assert(rootHints("AAAA").length >= 13);
+assert(rootHints().length >= 13);
 
-hints("A").forEach(function(address) {
-  assert(net.isIPv4(address));
-});
-
-hints("AAAA").forEach(function(address) {
-  assert(net.isIPv6(address));
-});
-
-hints().forEach(function(hint) {
-  assert(/^[a-z]\.root-servers\.net$/.test(hint.name));
-});
+rootHints("A").forEach(address => assert(net.isIPv4(address)));
+rootHints("AAAA").forEach(address => assert(net.isIPv6(address)));
+rootHints().forEach(hint => assert(/^[a-z]\.root-servers\.net$/.test(hint.name)));

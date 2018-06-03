@@ -9,7 +9,7 @@
     "test": "make test"
   },
   "engines": {
-    "node": ">=4"
+    "node": ">=6"
   },
   "keywords": [
     "dns",
@@ -28,10 +28,11 @@
     "hints.json"
   ],
   "devDependencies": {
-    "eslint": "^4.16.0",
+    "eslint": "^4.19.1",
+    "eslint-config-silverwind": "^1.0.42",
     "ip-regex": "^2.1.0",
     "request": "^2.83.0",
     "request-promise-native": "^1.0.5",
-    "updates": "^2.1.0"
+    "updates": "^3.0.0"
   }
 }
