@@ -28,11 +28,11 @@
     "hints.json"
   ],
   "devDependencies": {
-    "eslint": "^5.15.1",
-    "eslint-config-silverwind": "^2.1.0",
-    "ip-regex": "^4.0.0",
+    "eslint": "^5.16.0",
+    "eslint-config-silverwind": "^3.0.0",
+    "ip-regex": "^4.1.0",
     "request": "^2.88.0",
     "request-promise-native": "^1.0.7",
-    "updates": "^7.2.0"
+    "updates": "^8.0.3"
   }
 }
