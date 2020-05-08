@@ -1,19 +1,24 @@
 #!/usr/bin/env node
 "use strict";
 
-const fs = require("fs");
-const path = require("path");
+const {writeFile} = require("fs").promises;
+const {join} = require("path");
 const ipRegex = require("ip-regex");
-const request = require("request-promise-native");
-const source = "https://www.internic.net/domain/named.root";
+const fetch = require("make-fetch-happen");
 
-request(source).catch(console.error).then(body => {
+function exit(err) {
+  if (err) console.error(err);
+  process.exit(err ? 1 : 0);
+}
+
+async function main() {
+  const res = await fetch("https://www.internic.net/domain/named.root");
   const hints = [];
 
-  body.split("\n").filter(line => {
-    return !/^$/.test(line) && !/^;/.test(line) && !/\bNS\b/.test(line);
-  }).forEach(line => {
+  (await res.text()).split("\n").filter(line => {
     line = line.trim();
+    return line && !line.startsWith(";") && !/\bNS\b/.test(line);
+  }).forEach(line => {
     const name = /^(\S+)\.\s/.exec(line)[1].toLowerCase();
 
     let i;
@@ -40,5 +45,7 @@ request(source).catch(console.error).then(body => {
     }
   });
 
-  fs.writeFileSync(path.join(__dirname, "hints.json"), JSON.stringify(hints, null, 2) + "\n");
-});
+  await writeFile(join(__dirname, "hints.json"), `${JSON.stringify(hints, null, 2)}\n`);
+}
+
+main().then(exit).catch(exit);
