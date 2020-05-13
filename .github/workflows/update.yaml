@@ -18,7 +18,7 @@ jobs:
       - run: node update.js
       - run: |
           if [[ $(git status --porcelain) ]]; then
-            git fetch
+            git fetch --unshallow --quiet --tags
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git commit -am "automated data update"
