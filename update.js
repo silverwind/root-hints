@@ -4,7 +4,7 @@
 const {writeFile} = require("fs").promises;
 const {join} = require("path");
 const ipRegex = require("ip-regex");
-const fetch = require("make-fetch-happen");
+const fetch = require("fetch-enhanced")(require("node-fetch"));
 
 function exit(err) {
   if (err) console.error(err);
