@@ -2,10 +2,15 @@
 
 const hints = require("./hints.json");
 
+const values = {
+  A: hints.map(hint => hint.A),
+  AAAA: hints.map(hint => hint.AAAA),
+};
+
 module.exports = function rootHints(type) {
-  if (["A", "AAAA"].includes(type)) {
-    return hints.map(hint => hint[type]);
-  } else if (type === undefined) {
+  if (values[type]) {
+    return values[type];
+  } else if (!type) {
     return hints;
   } else {
     throw new Error(`Unknown record type: ${type}`);
