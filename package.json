@@ -28,12 +28,12 @@
     "hints.json"
   ],
   "devDependencies": {
-    "eslint": "7.10.0",
-    "eslint-config-silverwind": "21.0.0",
-    "fetch-enhanced": "5.0.0",
-    "ip-regex": "4.2.0",
+    "eslint": "7.21.0",
+    "eslint-config-silverwind": "29.0.0",
+    "fetch-enhanced": "5.0.1",
+    "ip-regex": "4.3.0",
     "node-fetch": "2.6.1",
-    "updates": "11.2.4",
-    "versions": "8.4.3"
+    "updates": "11.4.3",
+    "versions": "8.4.5"
   }
 }

@@ -15,10 +15,12 @@ async function main() {
   const res = await fetch("https://www.internic.net/domain/named.root");
   const hints = [];
 
-  (await res.text()).split("\n").filter(line => {
+  const lines = (await res.text()).split("\n").filter(line => {
     line = line.trim();
     return line && !line.startsWith(";") && !/\bNS\b/.test(line);
-  }).forEach(line => {
+  });
+
+  for (const line of lines) {
     const name = /^(\S+)\.\s/.exec(line)[1].toLowerCase();
 
     let i;
@@ -43,7 +45,7 @@ async function main() {
     } else {
       hints.push(entry);
     }
-  });
+  }
 
   await writeFile(join(__dirname, "hints.json"), `${JSON.stringify(hints, null, 2)}\n`);
 }
