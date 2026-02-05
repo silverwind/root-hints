@@ -1,29 +1,29 @@
 test:
-	yarn -s run eslint --color --quiet *.js
+	pnpm exec eslint --color --quiet *.js
 	node --trace-deprecation --throw-deprecation test.js
 
 publish:
 	git push -u --tags origin master
-	npm publish
+	pnpm publish
 
 deps:
 	rm -rf node_modules
-	yarn
+	pnpm install
 
 update:
-	yarn -s run updates -u
+	pnpm exec updates -u
 	$(MAKE) deps
 
 patch: test
-	yarn -s run versions -C patch
+	pnpm exec versions -C patch
 	$(MAKE) publish
 
 minor: test
-	yarn -s run versions -C minor
+	pnpm exec versions -C minor
 	$(MAKE) publish
 
 major: test
-	yarn -s run versions -C major
+	pnpm exec versions -C major
 	$(MAKE) publish
 
 .PHONY: test publish deps update patch minor major
