@@ -1,8 +1,6 @@
-"use strict";
-
-const rootHints = require(".");
-const assert = require("assert");
-const net = require("net");
+import rootHints from "./index.js";
+import assert from "node:assert";
+import net from "node:net";
 
 assert(Array.isArray(rootHints("A")));
 assert(Array.isArray(rootHints("AAAA")));

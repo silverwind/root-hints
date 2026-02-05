@@ -3,6 +3,7 @@
   "version": "4.0.1",
   "description": "Provides IP addresses of the DNS root servers, also known as 'root hints'.",
   "author": "silverwind <me@silverwind.io> (https://github.com/silverwind)",
+  "type": "module",
   "license": "BSD-2-Clause",
   "repository": "silverwind/root-hints",
   "scripts": {
@@ -29,11 +30,12 @@
     "hints.json"
   ],
   "devDependencies": {
-    "eslint": "7.26.0",
-    "eslint-config-silverwind": "33.0.0",
+    "eslint": "9.39.2",
+    "eslint-config-silverwind": "120.1.2",
     "fetch-enhanced": "6.0.0",
     "ip-regex": "4.3.0",
     "node-fetch": "2.6.1",
+    "typescript-config-silverwind": "14.0.0",
     "updates": "12.1.0",
     "versions": "8.4.7"
   }

@@ -1,13 +1,13 @@
-"use strict";
+import {readFileSync} from "node:fs";
 
-const hints = require("./hints.json");
+const hints = JSON.parse(readFileSync(new URL("hints.json", import.meta.url)));
 
 const values = {
   A: hints.map(hint => hint.A),
   AAAA: hints.map(hint => hint.AAAA),
 };
 
-module.exports = function rootHints(type) {
+export default function rootHints(type) {
   if (values[type]) {
     return values[type];
   } else if (!type) {
@@ -15,4 +15,4 @@ module.exports = function rootHints(type) {
   } else {
     throw new Error(`Unknown record type: ${type}`);
   }
-};
+}

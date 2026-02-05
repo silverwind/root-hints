@@ -1,10 +1,11 @@
 #!/usr/bin/env node
-"use strict";
+import {writeFile} from "node:fs/promises";
+import {join} from "node:path";
+import ipRegex from "ip-regex";
+import fetchEnhanced from "fetch-enhanced";
+import nodeFetch from "node-fetch";
 
-const {writeFile} = require("fs").promises;
-const {join} = require("path");
-const ipRegex = require("ip-regex");
-const fetch = require("fetch-enhanced")(require("node-fetch"));
+const fetch = fetchEnhanced(nodeFetch);
 
 function exit(err) {
   if (err) console.error(err);
@@ -23,15 +24,9 @@ async function main() {
   for (const line of lines) {
     const name = /^(\S+)\.\s/.exec(line)[1].toLowerCase();
 
-    let i;
-    hints.some((el, index) => {
-      if (el.name === name) {
-        i = index;
-        return true;
-      }
-    });
+    const i = hints.findIndex(el => el.name === name);
 
-    const entry = hints[i] || {};
+    const entry = i >= 0 ? hints[i] : {};
     entry.name = name;
 
     if (/\bAAAA\b/.test(line)) {
@@ -40,14 +35,14 @@ async function main() {
       entry.A = ipRegex.v4().exec(line)[0];
     }
 
-    if (typeof i === "number") {
+    if (i >= 0) {
       hints[i] = entry;
     } else {
       hints.push(entry);
     }
   }
 
-  await writeFile(join(__dirname, "hints.json"), `${JSON.stringify(hints, null, 2)}\n`);
+  await writeFile(join(import.meta.dirname, "hints.json"), `${JSON.stringify(hints, null, 2)}\n`);
 }
 
 main().then(exit).catch(exit);

@@ -1,5 +1,5 @@
 test:
-	pnpm exec eslint --color --quiet *.js
+	pnpm exec eslint --color .
 	node --trace-deprecation --throw-deprecation test.js
 
 publish:
