@@ -31,7 +31,7 @@
   ],
   "devDependencies": {
     "eslint": "9.39.3",
-    "eslint-config-silverwind": "122.0.4",
+    "eslint-config-silverwind": "122.0.6",
     "fetch-enhanced": "12.3.2",
     "ip-regex": "5.0.0",
     "node-fetch": "3.3.2",
