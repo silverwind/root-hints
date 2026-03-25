@@ -4,6 +4,7 @@
   "description": "Provides IP addresses of the DNS root servers, also known as 'root hints'.",
   "author": "silverwind <me@silverwind.io> (https://github.com/silverwind)",
   "type": "module",
+  "sideEffects": false,
   "license": "BSD-2-Clause",
   "repository": "silverwind/root-hints",
   "scripts": {
