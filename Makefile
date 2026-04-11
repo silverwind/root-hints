@@ -20,15 +20,15 @@ update:
 	$(MAKE) deps
 
 patch: test
-	pnpm exec versions -C patch
+	pnpm exec versions -R -C patch
 	$(MAKE) publish
 
 minor: test
-	pnpm exec versions -C minor
+	pnpm exec versions -R -C minor
 	$(MAKE) publish
 
 major: test
-	pnpm exec versions -C major
+	pnpm exec versions -R -C major
 	$(MAKE) publish
 
 .PHONY: lint lint-fix test publish deps update patch minor major
