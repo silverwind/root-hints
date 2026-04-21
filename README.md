@@ -1,5 +1,5 @@
 # root-hints
-[![](https://img.shields.io/npm/v/root-hints.svg?style=flat)](https://www.npmjs.org/package/root-hints) [![](https://img.shields.io/npm/dm/root-hints.svg)](https://www.npmjs.org/package/root-hints)
+[![](https://img.shields.io/npm/v/root-hints.svg?style=flat)](https://www.npmjs.org/package/root-hints) [![](https://img.shields.io/npm/dm/root-hints.svg)](https://www.npmjs.org/package/root-hints) [![](https://packagephobia.com/badge?p=root-hints)](https://packagephobia.com/result?p=root-hints)
 > Provides IP addresses of the DNS root servers, also known as root hints.
 
 ## Installation
