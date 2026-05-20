@@ -7,12 +7,16 @@
   "sideEffects": false,
   "license": "BSD-2-Clause",
   "repository": "silverwind/root-hints",
-  "scripts": {
-    "test": "make test"
-  },
+  "main": "./dist/index.js",
+  "exports": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "packageManager": "pnpm@10.33.4",
   "engines": {
-    "node": ">=8"
+    "node": ">=22",
+    "bun": "*"
   },
   "keywords": [
     "dns",
@@ -26,20 +30,21 @@
     "ipv6",
     "root-servers"
   ],
-  "files": [
-    "index.js",
-    "hints.json"
-  ],
   "devDependencies": {
-    "eslint": "10.3.0",
-    "eslint-config-silverwind": "133.0.1",
-    "fetch-enhanced": "13.0.0",
+    "@types/node": "25.8.0",
+    "@typescript/native-preview": "7.0.0-dev.20260515.1",
+    "eslint": "10.4.0",
+    "eslint-config-silverwind": "133.0.2",
     "ip-regex": "5.0.0",
     "jest-extended": "7.0.0",
-    "node-fetch": "3.3.2",
+    "tsdown": "0.22.0",
+    "tsdown-config-silverwind": "3.0.1",
+    "typescript": "6.0.3",
     "typescript-config-silverwind": "18.0.0",
-    "updates": "17.16.10",
+    "updates": "17.16.12",
     "updates-config-silverwind": "3.0.2",
-    "versions": "15.0.3"
+    "versions": "15.0.4",
+    "vitest": "4.1.6",
+    "vitest-config-silverwind": "11.3.5"
   }
 }
