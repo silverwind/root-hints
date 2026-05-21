@@ -6,8 +6,8 @@
   },
   {
     "name": "b.root-servers.net",
-    "A": "199.9.14.201",
-    "AAAA": "2001:500:200::b"
+    "A": "170.247.170.2",
+    "AAAA": "2801:1b8:10::b"
   },
   {
     "name": "c.root-servers.net",
