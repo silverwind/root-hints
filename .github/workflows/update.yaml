@@ -20,7 +20,7 @@ jobs:
           cache: pnpm
           node-version: latest
       - run: make deps
-      - run: node update.js
+      - run: make update-data
       - run: |
           if [[ $(git status --porcelain --untracked-files=no) ]]; then
             git fetch --unshallow --quiet --tags
