@@ -4,7 +4,7 @@ on:
     - cron: "5 3 * * 0"
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   update:
@@ -17,7 +17,7 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           cache: pnpm
-          node-version: "16"
+          node-version: latest
       - run: make deps
       - run: node update.js
       - run: |
@@ -30,3 +30,5 @@ jobs:
           else
             echo "Nothing to commit"
           fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
