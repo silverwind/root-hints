@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import {writeFile} from "node:fs/promises";
-import ipRegex from "ip-regex";
+import {isIPv4, isIPv6} from "node:net";
 
 type HintEntry = {
   name: string,
@@ -31,9 +31,9 @@ for (const line of lines) {
   entry.name = name;
 
   if (/\bAAAA\b/.test(line)) {
-    entry.AAAA = ipRegex.v6().exec(line)![0];
+    entry.AAAA = line.split(/\s+/).find(token => isIPv6(token))!;
   } else {
-    entry.A = ipRegex.v4().exec(line)![0];
+    entry.A = line.split(/\s+/).find(token => isIPv4(token))!;
   }
 
   if (index >= 0) {

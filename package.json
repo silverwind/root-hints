@@ -6,7 +6,10 @@
   "type": "module",
   "sideEffects": false,
   "license": "BSD-2-Clause",
-  "repository": "silverwind/root-hints",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/silverwind/root-hints.git"
+  },
   "main": "./dist/index.js",
   "exports": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -35,7 +38,6 @@
     "@typescript/native-preview": "7.0.0-dev.20260707.2",
     "eslint": "10.8.0",
     "eslint-config-silverwind": "144.0.0",
-    "ip-regex": "5.0.0",
     "jest-extended": "7.0.0",
     "tsdown": "0.22.14",
     "tsdown-config-silverwind": "4.0.3",
