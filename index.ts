@@ -22,7 +22,7 @@ const values: Record<"A" | "AAAA", Array<string>> = {
 export default function rootHints(type?: "A" | "AAAA"): Array<Hint> | Array<string> {
   if (!type) {
     return hints;
-  } else if (values[type]) {
+  } else if (Object.hasOwn(values, type)) {
     return values[type];
   } else {
     throw new Error(`Unknown record type: ${type}`);

@@ -13,6 +13,10 @@ test("rootHints returns at least 13 entries", () => {
   expect(rootHints().length).toBeGreaterThanOrEqual(13);
 });
 
+test("rootHints throws on Object.prototype keys as record type", () => {
+  expect(() => rootHints("toString" as "A")).toThrow("Unknown record type: toString");
+});
+
 test("rootHints A entries are valid IPv4 addresses", () => {
   for (const address of rootHints("A") as Array<string>) {
     expect(isIPv4(address)).toBe(true);
