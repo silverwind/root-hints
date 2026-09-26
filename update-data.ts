@@ -9,6 +9,7 @@ type HintEntry = {
 };
 
 const res = await fetch("https://www.internic.net/domain/named.root");
+if (!res.ok) throw new Error(`Failed to fetch named.root: ${res.status} ${res.statusText}`);
 const hints: Array<HintEntry> = [];
 
 const lines = (await res.text()).split("\n").filter(line => {
