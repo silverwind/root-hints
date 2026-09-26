@@ -1,36 +1,17 @@
 import {isIPv4, isIPv6} from "node:net";
-import rootHints from "./index.ts";
+import rootHints, {type Hint} from "./index.ts";
 
-test("rootHints returns arrays", () => {
-  expect(Array.isArray(rootHints("A"))).toBe(true);
-  expect(Array.isArray(rootHints("AAAA"))).toBe(true);
-  expect(Array.isArray(rootHints())).toBe(true);
-});
-
-test("rootHints returns at least 13 entries", () => {
-  expect(rootHints("A").length).toBeGreaterThanOrEqual(13);
-  expect(rootHints("AAAA").length).toBeGreaterThanOrEqual(13);
-  expect(rootHints().length).toBeGreaterThanOrEqual(13);
+test.each([
+  ["A", isIPv4],
+  ["AAAA", isIPv6],
+  [undefined, ({name}: Hint) => /^[a-z]\.root-servers\.net$/.test(name)],
+] as const)("rootHints(%s) returns an array of at least 13 valid entries", (type, isValid) => {
+  const entries = rootHints(type);
+  expect(Array.isArray(entries)).toBe(true);
+  expect(entries.length).toBeGreaterThanOrEqual(13);
+  expect(entries.filter(entry => !isValid(entry as never))).toEqual([]);
 });
 
 test("rootHints throws on Object.prototype keys as record type", () => {
   expect(() => rootHints("toString" as "A")).toThrow("Unknown record type: toString");
-});
-
-test("rootHints A entries are valid IPv4 addresses", () => {
-  for (const address of rootHints("A") as Array<string>) {
-    expect(isIPv4(address)).toBe(true);
-  }
-});
-
-test("rootHints AAAA entries are valid IPv6 addresses", () => {
-  for (const address of rootHints("AAAA") as Array<string>) {
-    expect(isIPv6(address)).toBe(true);
-  }
-});
-
-test("rootHints entries have valid root server names", () => {
-  for (const hint of rootHints() as Array<{name: string}>) {
-    expect(hint.name).toMatch(/^[a-z]\.root-servers\.net$/);
-  }
 });
